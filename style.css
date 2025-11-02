@@ -16,12 +16,13 @@ header {
 nav {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   margin-top: 10px;
+  flex-wrap: wrap; /* so images move to next line on small screens */
 }
 
 nav img {
-  width: 60px;
+  width: 45px;        /* smaller base size */
   height: auto;
   transition: transform 0.2s ease, filter 0.2s ease;
   filter: brightness(90%);
@@ -53,4 +54,11 @@ button#playMusic {
 
 button#playMusic:hover {
   transform: scale(1.1);
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 600px) {
+  nav img {
+    width: 35px;
+  }
 }

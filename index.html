@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dat Weird Website</title>
 <link rel="stylesheet" href="assets/style.css">
@@ -32,7 +32,13 @@
   <p>© 2025 Dat Weird Website</p>
 </footer>
 
-<script src="assets/script.js"></script>
+<script>
+  const music = document.getElementById('bg-music');
+  const muteBtn = document.getElementById('mute-btn');
+  muteBtn.addEventListener('click', () => {
+    music.muted = !music.muted;
+    muteBtn.textContent = music.muted ? "Unmute Music" : "Mute Music";
+  });
+</script>
 </body>
 </html>
-

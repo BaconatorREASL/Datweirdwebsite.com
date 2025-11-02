@@ -16,12 +16,12 @@ header {
 nav {
   display: flex;
   justify-content: center;
-  gap: 10px; /* smaller gap between buttons */
+  gap: 10px;
   margin-top: 10px;
 }
 
 nav img {
-  width: 60px;   /* smaller width */
+  width: 60px;
   height: auto;
   transition: transform 0.2s ease, filter 0.2s ease;
   filter: brightness(90%);
@@ -39,6 +39,19 @@ footer {
   margin-top: 40px;
 }
 
-audio {
-  display: none;
+button#playMusic {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.2s;
 }
+
+button#playMusic:hover {
+  transform: scale(1.1);
+}
+

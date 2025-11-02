@@ -1,39 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Original Characters - Dat Weird Website</title>
-  <link rel="stylesheet" href="../assets/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Original Characters - Dat Weird Website</title>
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-  <header>
-    <h1>Original Characters</h1>
-    <nav>
-      <a href="../index.html"><img src="../assets/images/home.png" alt="Home" /></a>
-      <a href="characters.html"><img src="../assets/images/characters.png" alt="Original Characters" /></a>
-      <a href="socials.html"><img src="../assets/images/socials.png" alt="Social Medias" /></a>
-    </nav>
-  </header>
+<header>
+  <h1>Original Characters</h1>
+  <nav>
+    <a href="../index.html"><img src="../assets/images/home.png" alt="Home"></a>
+    <a href="characters.html"><img src="../assets/images/characters.png" alt="Original Characters"></a>
+    <a href="projects.html"><img src="../assets/images/projects.png" alt="Projects"></a>
+    <a href="socials.html"><img src="../assets/images/socials.png" alt="Social Medias"></a>
+  </nav>
+</header>
 
-  <main>
-    <h2>Meet the weird bunch</h2>
-    <div class="character-list">
-      <div class="character">
-        <img src="../assets/images/characters/Me.png" alt="Character 1">
-        <h3>lox</h3>
-        <p>This one’s weird in all the right ways. :D</p>
-      </div>
-      <div class="character">
-        <img src="../assets/images/characters/character2.png" alt="Character 2">
-        <h3>Another Character</h3>
-        <p>Weirder. Louder. Possibly cursed.</p>
-      </div>
+<main>
+  <h2>Meet the weird bunch</h2>
+  <div class="character-list">
+    <div class="character-card" data-character="character1">
+      <img src="../assets/images/characters/character1/main.png" alt="Character 1">
+      <h3>Character 1</h3>
     </div>
-  </main>
+    <div class="character-card" data-character="character2">
+      <img src="../assets/images/characters/character2/main.png" alt="Character 2">
+      <h3>Character 2</h3>
+    </div>
+  </div>
 
-  <footer>
-    <p>© 2025 Dat Weird Website</p>
-  </footer>
+  <!-- Modal -->
+  <div id="character-modal" class="modal">
+    <div class="modal-content">
+      <span id="modal-close">&times;</span>
+      <h2 id="modal-name"></h2>
+      <img id="modal-main-img" src="" alt="Main Image">
+      <div id="modal-extra-images" class="extra-images"></div>
+      <p id="modal-description"></p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 Dat Weird Website</p>
+</footer>
+
+<script>
+const characters = {
+  character1: {
+    name: "Character 1",
+    description: "This one’s weird in all the right ways.",
+    main: "../assets/images/characters/character1/main.png",
+    extras: [
+      "../assets/images/characters/character1/extra1.png",
+      "../assets/images/characters/character1/extra2.png"
+    ]
+  },
+  character2: {
+    name: "Character 2",
+    description: "Weirder. Louder. Possibly cursed.",
+    main: "../assets/images/characters/character2/main.png",
+    extras: [
+      "../assets/images/characters/character2/extra1.png",
+      "../assets/images/characters/character2/extra2.png"
+    ]
+  }
+};
+
+const modal = document.getElementById('character-modal');
+const modalName = document.getElementById('modal-name');
+const modalMain = document.getElementById('modal-main-img');
+const modalExtras = document.getElementById('modal-extra-images');
+const modalDescription = document.getElementById('modal-description');
+const closeBtn = document.getElementById('modal-close');
+
+document.querySelectorAll('.character-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const charKey = card.getAttribute('data-character');
+    const charData = characters[charKey];
+    modalName.textContent = charData.name;
+    modalMain.src = charData.main;
+    modalDescription.textContent = charData.description;
+    modalExtras.innerHTML = '';
+    charData.extras.forEach(img => {
+      const extraImg = document.createElement('img');
+      extraImg.src = img;
+      modalExtras.appendChild(extraImg);
+    });
+    modal.style.display = 'flex';
+  });
+});
+
+closeBtn.onclick = () => modal.style.display = 'none';
+window.onclick = e => { if(e.target == modal) modal.style.display='none'; }
+</script>
 </body>
 </html>

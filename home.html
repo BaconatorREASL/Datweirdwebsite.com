@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dat Weird Website - Home</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header>
+  <h1>Dat Weird Website</h1>
+  <nav>
+    <a href="home.html"><img src="assets/images/home.png" alt="Home"></a>
+    <a href="pages/characters.html"><img src="assets/images/characters.png" alt="Original Characters"></a>
+    <a href="pages/projects.html"><img src="assets/images/projects.png" alt="Projects"></a>
+    <a href="pages/socials.html"><img src="assets/images/socials.png" alt="Social Medias"></a>
+  </nav>
+</header>
+
+<main>
+  <h2>Welcome to Dat Weird Website</h2>
+  <p>This is where the chaos begins. Explore characters, projects, and socials.</p>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="assets/music/music.mp3" type="audio/mpeg">
+    Your browser doesn’t support the audio element.
+  </audio>
+  <button id="mute-btn">Mute Music</button>
+</main>
+
+<footer>
+  <p>© 2025 Dat Weird Website</p>
+</footer>
+
+<script>
+  const music = document.getElementById('bg-music');
+  const muteBtn = document.getElementById('mute-btn');
+  muteBtn.addEventListener('click', () => {
+    music.muted = !music.muted;
+    muteBtn.textContent = music.muted ? "Unmute Music" : "Mute Music";
+  });
+</script>
+</body>
+</html>

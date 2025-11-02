@@ -39,7 +39,7 @@ footer {
   margin-top: 40px;
 }
 
-button#toggleMusic {
+button#playMusic {
   margin: 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -51,6 +51,6 @@ button#toggleMusic {
   transition: transform 0.2s;
 }
 
-button#toggleMusic:hover {
+button#playMusic:hover {
   transform: scale(1.1);
 }
